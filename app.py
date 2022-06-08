@@ -66,6 +66,7 @@ def main():
             password = os.environ.get('mqtt_password')
             topic = os.environ.get('mqtt_topic')
 
+            print("sending data to " + host)
             generate(host, port, username, password, topic, sensors, interval_ms, verbose)
     except IOError as error:
         print("Error opening config file '%s'" % config_path, error)
