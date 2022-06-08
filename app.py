@@ -67,7 +67,7 @@ def main():
             password = os.environ.get('mqtt_password')
             topic = os.environ.get('mqtt_topic')
 
-            print("sending data to " + host)
+            print("sending data to " + host + " on port " + str(port))
             generate(host, port, username, password, topic, sensors, interval_ms, verbose)
     except OSError as error:
         print("Error connecting to host '%s'" % error)
