@@ -74,7 +74,5 @@ def main():
         
 # Script entry point.
 if __name__ == "__main__":
-    # Instantiate and run application.
-    app = main()
-    app.run()
+    main()
 
