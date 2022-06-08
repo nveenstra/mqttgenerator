@@ -70,4 +70,10 @@ def main():
             generate(host, port, username, password, topic, sensors, interval_ms, verbose)
     except IOError as error:
         print("Error opening config file '%s'" % config_path, error)
+        
+# Script entry point.
+if __name__ == "__main__":
+    # Instantiate and run application.
+    app = main()
+    app.run()
 
