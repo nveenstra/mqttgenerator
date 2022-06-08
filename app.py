@@ -69,8 +69,8 @@ def main():
 
             print("sending data to " + host)
             generate(host, port, username, password, topic, sensors, interval_ms, verbose)
-    except IOError as error:
-        print("Error opening config file '%s'" % config_path, error)
+    except OSError as error:
+        print("Error connecting to host '%s'" % error)
         
 # Script entry point.
 if __name__ == "__main__":
