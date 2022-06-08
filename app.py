@@ -70,8 +70,3 @@ def main():
     except IOError as error:
         print("Error opening config file '%s'" % config_path, error)
 
-if __name__ == '__main__':
-    if len(sys.argv) == 2:
-        main(sys.argv[1])
-    else:
-        print("usage %s config.json" % sys.argv[0])
