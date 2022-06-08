@@ -45,12 +45,11 @@ def generate(host, port, username, password, topic, sensors, interval_ms, verbos
         time.sleep(interval_secs)
 
 
-def main(config_path):
+def main():
     """main entry point, load and validate config and call generate"""
     try:
-        with open(config_path) as handle:
+        with open("config.json") as handle:
             config = json.load(handle)
-            mqtt_config = config.get("mqtt", {})
             misc_config = config.get("misc", {})
             sensors = config.get("sensors")
 
@@ -61,11 +60,11 @@ def main(config_path):
                 print("no sensors specified in config, nothing to do")
                 return
 
-            host = mqtt_config.get("host", "localhost")
-            port = mqtt_config.get("port", 1883)
-            username = mqtt_config.get("username")
-            password = mqtt_config.get("password")
-            topic = mqtt_config.get("topic", "mqttgen")
+            host = os.environ.get('mqtt_host')
+            port = os.environ.get('mqtt_port')
+            username = os.environ.get('mqtt_username')
+            password = os.environ.get('mqtt_password')
+            topic = os.environ.get('mqtt_topic')
 
             generate(host, port, username, password, topic, sensors, interval_ms, verbose)
     except IOError as error:
