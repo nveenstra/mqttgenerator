@@ -54,7 +54,7 @@ def main():
             misc_config = config.get("misc", {})
             sensors = config.get("sensors")
 
-            interval_ms = misc_config.get("interval_ms", 500)
+            interval_ms = misc_config.get("interval_ms", 5000)
             verbose = misc_config.get("verbose", False)
 
             if not sensors:
