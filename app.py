@@ -62,7 +62,7 @@ def main():
                 return
 
             host = os.environ.get('mqtt_host')
-            port = os.environ.get('mqtt_port')
+            port = int(os.environ.get('mqtt_port'))
             username = os.environ.get('mqtt_username')
             password = os.environ.get('mqtt_password')
             topic = os.environ.get('mqtt_topic')
